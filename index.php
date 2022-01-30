@@ -21,7 +21,7 @@ $andrew_wilson_EA = new User('Andrew', 'Wilson', 'andrew.wilson@electronicArts.c
 $andrew_wilson_EA->addGame($league_of_legends);
 $andrew_wilson_EA->addGame($call_of_duty);
 $andrew_wilson_EA->addGame($super_mario_3D_World);
-$andrew_wilson_EA = $andrew_wilson_EA->getBasket();
+$andrew_wilson_EA_basket = $andrew_wilson_EA->getBasket();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ $andrew_wilson_EA = $andrew_wilson_EA->getBasket();
 </head>
 <body>
 
-    <h1>Welcome Sig. <?php echo $andrew_wilson_EA->getFullName(); ?> this is your basket</h1>
+    <h1>Welcome Mr. <?php echo $andrew_wilson_EA->getFullName(); ?> this is your basket</h1>
     
     <?php foreach($andrew_wilson_EA_basket as $game) { ?>
         <div>
