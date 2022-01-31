@@ -1,8 +1,11 @@
 <?php
-class Games {
-    public $title;
+require_once __DIR__ . '/Platform.php';
 
-    public $platform;
+class Games {
+
+    use Platform;
+
+    public $title;
 
     public $PEGI;
 

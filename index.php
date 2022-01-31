@@ -11,7 +11,14 @@ require_once __DIR__ . '/Console.php';
 require_once __DIR__ . '/Nintendo.php';
 require_once __DIR__ . '/User.php';
 
-$league_of_legends = new PC('League Of Legends', 'PC', 12, true, 0, 'CPU = Intel: Core i3-530/AMD: A6-3650, GPU = NVidia: GeForce 9600GT/AMD: HD 6570/Intel: Intel HD 4600 integrated graphics card');
+try {
+    $league_of_legends = new PC('League Of Legends', 'PC', 12, true, 0, 'CPU = Intel: Core i3-530/AMD: A6-3650, GPU = NVidia: GeForce 9600GT/AMD: HD 6570/Intel: Intel HD 4600 integrated graphics card');
+} catch(Exception $e) {
+    error_log($e);
+
+    echo '<div style="height: 100vh; font-size: 22px; display: flex; flex-direction: column; justify-content: center; align-items: center"><span>Siamo Spiacenti!</span><span>Al momento il nostro sito non è disponibile per motivi di manutenzione, la preghiamo di riprovare più tardi.</span></div>';
+    die();
+}
 
 $call_of_duty = new Console('Call Of Duty: Vanguard', 'PS4/Xbox X/S', 18, true, 60);
 
@@ -40,7 +47,14 @@ $andrew_wilson_EA_basket = $andrew_wilson_EA->getBasket();
         <div>
             <h2><?php echo $game->title; ?> - <?php echo $game->platform; ?></h2>
             <div>PEGI: <?php echo $game->PEGI; ?></div>
-            <div>Multiplayer: <?php echo $game->multiplayer; ?> Euro</div>
+            <div>
+                Multiplayer: 
+                <?php if ($game->multiplayer) { ?>
+                    <?php echo 'Si' ?>
+                <?php } else {?>
+                    <?php echo 'No' ?>
+                <?php } ?>
+            </div>
             <div>Price: <?php echo $game->price; ?> Euro</div>
 
             <?php if(isset($game->system_requirements)) { ?>

@@ -13,7 +13,7 @@ class User {
 
     protected $basket = [];
 
-    public function __construct($_nome, $_cognome, $_email, $nick_name, $platform) {
+    public function __construct($_nome, $_cognome, $_email, $_nick_name, $_platform) {
         $this->nome = $_nome;
         $this->cognome = $_cognome;
         $this->email = $_email;
